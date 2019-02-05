@@ -1,4 +1,4 @@
-# Redrate [![Build Status](https://travis-ci.org/mbklein/redrate.svg?branch=master)](https://travis-ci.org/mbklein/redrate)
+# Redrate [![Build Status](https://travis-ci.com/nulib/redrate.svg?branch=master)](https://travis-ci.com/nulib/redrate)
 
 A distributed rate limiter for Ruby, based on [ruby-limiter](https://github.com/Shopify/limiter).
 By using redis as the ring store, `Redrate` can enforce the rate limit across multiple 
