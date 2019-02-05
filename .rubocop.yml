@@ -1,0 +1,50 @@
+inherit_gem:
+  bixby: bixby_default.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+  DisplayCopNames: true
+  Exclude:
+    - 'vendor/**/*'
+
+Rails:
+  Enabled: true
+Rails/FilePath:
+  Exclude:
+
+Metrics/ClassLength:
+  Max: 130
+  Exclude:
+Metrics/LineLength:
+  Max: 400
+Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
+    - 'spec/**/*'
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/javascripts/**/*'
+    
+RSpec/LeadingSubject:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/NumericLiterals:
+  MinDigits: 7
+
+Layout/IndentationConsistency:
+  EnforcedStyle: rails
+
+Naming/FileName:
+  Exclude:
+    - 'browse-everything.gemspec'
+    - 'Gemfile'
