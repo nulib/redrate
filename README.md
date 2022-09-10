@@ -62,7 +62,7 @@ end
 
 ### Advanced Usage
 
-In cases where the mixin is not appropriate the `RedRate::Queue` class can be used 
+In cases where the mixin is not appropriate the `Redrate::Queue` class can be used 
 directly. As in the mixin examples above, the `interval` parameter is optional (and 
 defaults to 1 minute).
 
@@ -70,7 +70,7 @@ defaults to 1 minute).
 class Widget
   def initialize
     # create a rate-limited queue which allows 10000 operations per hour
-    @queue = RedRate::Queue.new(10000, interval: 3600)
+    @queue = Redrate::Queue.new(10000, interval: 3600)
   end
 
   def tick
