@@ -26,9 +26,9 @@ module Redrate
     def rotate!
       current_head = head
       current_time = now
-      @redis.pipelined do
-        @redis.lset(ring_key, current_head, current_time.to_s)
-        @redis.set(head_key, (current_head + 1) % @size)
+      @redis.pipelined do |pipeline|
+        pipeline.lset(ring_key, current_head, current_time.to_s)
+        pipeline.set(head_key, (current_head + 1) % @size)
       end
     end
 
@@ -70,11 +70,11 @@ module Redrate
       def initialize_ring
         return unless @redis.llen(ring_key).zero?
 
-        @redis.pipelined do
+        @redis.pipelined do |pipeline|
           1.upto(@size) do
-            @redis.lpush(ring_key, @default)
+            pipeline.lpush(ring_key, @default)
           end
-          @redis.set(head_key, 0)
+          pipeline.set(head_key, 0)
         end
       end
 
